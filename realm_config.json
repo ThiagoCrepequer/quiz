@@ -1,9 +1,0 @@
-{
-    "app_id": "application-1-rjrzs",
-    "config_version": 20210101,
-    "name": "Application-1",
-    "location": "BR-SP",
-    "provider_region": "aws-sa-east-1",
-    "deployment_model": "LOCAL",
-    "environment": "testing"
-}
