@@ -11,6 +11,16 @@ function send_answer(numero_alternativa) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(alternativa)
     })
+    .then(response => response.json())
+    .then(dados => {
+        if(dados.resultado == 'correto') {
+            console.log('certo!')
+            get_pergunta()
+        } else {
+            console.log('errado')
+        }
+    })
+    .catch(error => console.error(error));
 }
 
 button1.addEventListener('click', function() {
