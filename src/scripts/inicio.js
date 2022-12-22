@@ -1,4 +1,5 @@
 var controla_comeco = 0
+var intevalor
 
 document.addEventListener('keypress', function(res) {
     if(controla_comeco == 0 && res.key == 'Enter') {
@@ -6,5 +7,6 @@ document.addEventListener('keypress', function(res) {
         texto_comeco.hidden = true
 
         get_pergunta()
+        intervalo = setInterval(contaTempo, 1000)
     }
 })

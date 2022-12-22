@@ -4,5 +4,7 @@ function fim_reiniciar() {
     
     fim.hidden = false
     div_jogo.hidden = true
+
+    clearInterval(intervalo)
     //location.reload(true);
 }
