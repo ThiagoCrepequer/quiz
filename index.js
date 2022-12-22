@@ -5,16 +5,14 @@ const app = express();
 const getPergunta = require('./mongodb')
 
 app.use(session({
-    secret: 'minha-chave-secreta',
+    secret: 'secret',
     resave: false,
     saveUninitialized: true
 }));
 
-var contagem
-
 // API para o metodo get
 app.get('/pergunta', (req, res) => {
-    getPergunta(contagem).then(pergunta => {
+    getPergunta(req.session.contagem).then(pergunta => {
         var pergunta_alternativas = {
             alternativas: pergunta.alternativas,
             pergunta: pergunta.pergunta
@@ -28,12 +26,12 @@ app.use(bodyParser.json());
 
 app.post('/reposta', (req, res) => {
     var alternativa = req.body
-    getPergunta(contagem).then(pergunta => {
+    getPergunta(req.session.contagem).then(pergunta => {
         if(pergunta.correta == alternativa.alternativa) {
-            contagem++
+            req.session.contagem++
             var alternativa_correta = {
                 resultado: "correto",
-                contador: contagem
+                contador: req.session.contagem
             }
             res.json(alternativa_correta)
         } else {
@@ -49,8 +47,8 @@ app.post('/reposta', (req, res) => {
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/src/index.html')
     app.use(express.static('src'))
-
-    contagem = 1
+    
+    req.session.contagem = 1
 });
 
 app.listen(80, () => {

@@ -1,6 +1,9 @@
 const MongoClient = require('mongodb').MongoClient;
+const dotenv = require('dotenv')
+dotenv.config({debug: true})
 
-const url = 'mongodb+srv://crepequer:BMItzmDTpiCMnbnD@cluster0.8iormio.mongodb.net/test';
+
+const url = process.env.URL_MONGO;
 const dbname = 'perguntas';
 
 async function getPergunta(valor) {
