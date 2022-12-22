@@ -13,15 +13,12 @@ function send_answer(numero_alternativa) {
     })
     .then(response => response.json())
     .then(dados => {
+        somaPontos(dados.resultado)
         if(dados.resultado == 'correto') {
-            if(dados.contador == 10) {
-                console.log('a')
-                return
-            } else {
+            if(dados.contador == 10) { fim_reiniciar(); return } 
+            else {
                 get_pergunta()
             }
-        } else {
-            console.log('errado')
         }
     })
     .catch(error => console.error(error));

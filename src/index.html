@@ -10,15 +10,25 @@
 <body>
     <p id="texto-comeco">Para começar aperte Enter</p>
 
-    <p id="Pergunta"></p>
-    <form>
-        <input id="button1" type="button" value="asd">
-        <input id="button2" type="button" value="asd">
-        <input id="button3" type="button" value="asd">
-        <input id="button4" type="button" value="asd">
-    </form>
+    <div id="div-jogo">
+        <p id="Pergunta" class="fim"></p>
+        <form id="formulario-questoes" class="fim" hidden="true">
+            <input id="button1" type="button" value="">
+            <input id="button2" type="button" value="">
+            <input id="button3" type="button" value="">
+            <input id="button4" type="button" value="">
+        </form>
+    </div>
+    <div id="fim" hidden="true">
+        <p id="texto-fim">O quiz terminou esse foi o seu resultado:</p>
+    </div>
+    <p id="resultado-acertos"></p>
+    <p id="resultado-erros"></p>
+    
+    <script src="scripts/fim.js"></script>
     <script src="scripts/get_questions.js"></script>
     <script src="scripts/inicio.js"></script>
     <script src="scripts/send_answer.js"></script>
+    <script src="scripts/atualiza-pontuacao.js"></script>
 </body>
 </html>
