@@ -1,5 +1,3 @@
-const { Collection } = require('mongodb');
-
 const MongoClient = require('mongodb').MongoClient;
 
 const url = 'mongodb+srv://crepequer:BMItzmDTpiCMnbnD@cluster0.8iormio.mongodb.net/test';

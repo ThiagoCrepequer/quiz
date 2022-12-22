@@ -1,7 +1,14 @@
 const bodyParser = require('body-parser');
 const express = require('express');
+const session = require('express-session')
 const app = express();
 const getPergunta = require('./mongodb')
+
+app.use(session({
+    secret: 'minha-chave-secreta',
+    resave: false,
+    saveUninitialized: true
+}));
 
 var contagem
 
