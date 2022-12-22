@@ -22,14 +22,12 @@ app.use(bodyParser.json());
 app.post('/reposta', (req, res) => {
     var alternativa = req.body
     getPergunta(contagem).then(pergunta => {
-        console.log(pergunta.correta == alternativa.alternativa)
         if(pergunta.correta == alternativa.alternativa) {
-            var alternativa_correta = {
-                resultado: "correto"
-            }
-
             contagem++
-
+            var alternativa_correta = {
+                resultado: "correto",
+                contador: contagem
+            }
             res.json(alternativa_correta)
         } else {
             var alternativa_errada = {

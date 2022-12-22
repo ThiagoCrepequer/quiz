@@ -14,8 +14,12 @@ function send_answer(numero_alternativa) {
     .then(response => response.json())
     .then(dados => {
         if(dados.resultado == 'correto') {
-            console.log('certo!')
-            get_pergunta()
+            if(dados.contador == 10) {
+                console.log('a')
+                return
+            } else {
+                get_pergunta()
+            }
         } else {
             console.log('errado')
         }

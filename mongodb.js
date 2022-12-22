@@ -8,12 +8,13 @@ const dbname = 'perguntas';
 async function getPergunta(valor) {
   try {
     const client = await MongoClient.connect(url, { useNewUrlParser: true });
-    console.log('Conectado ao MongoDB');
-
+    
     const perguntasCollection = client.db(dbname).collection('perguntas');
     
     const pergunta = await perguntasCollection.findOne({ sequencia: `${valor}` });
-
+    if(pergunta == null) {
+        return undefined
+    }
     return pergunta
   } catch (err) {
     console.error(err);
