@@ -3,6 +3,7 @@ const express = require('express');
 const session = require('express-session')
 const app = express();
 const getPergunta = require('./mongodb')
+const port = process.env.PORT || 3001;
 
 app.use(session({
     secret: 'secret',
@@ -68,6 +69,6 @@ app.get('/rank', (req, res) => {
     app.use(express.static('src/rank/'))
 })
 
-app.listen(80, '0.0.0.0', () => {
+app.listen(port, () => {
     console.log('Server GET listening on port 80');
 });
