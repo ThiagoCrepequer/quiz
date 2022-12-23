@@ -25,6 +25,7 @@ async function getPergunta(valor) {
     if(pergunta == null) {
         return undefined
     }
+    console.log(pergunta)
     return pergunta
   } catch (err) {
     console.error(err);
