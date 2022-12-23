@@ -7,9 +7,10 @@ const port = process.env.PORT || 3001;
 const MongoStore = require('connect-mongodb-session')(session);
 
 const store = new MongoStore({
-    uri: process.env.URL_MONGO,
+    uri: process.env.URL_MONGO, 
     collection: 'sessions'
 });
+
 
 app.use(session({
     secret: 'my-secret',
