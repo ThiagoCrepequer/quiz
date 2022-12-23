@@ -68,6 +68,6 @@ app.get('/rank', (req, res) => {
     app.use(express.static('src/rank/'))
 })
 
-app.listen(80, '52.41.36.82', () => {
+app.listen(80, '0.0.0.0', () => {
     console.log('Server GET listening on port 80');
 });
