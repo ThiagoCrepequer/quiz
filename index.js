@@ -3,24 +3,6 @@ const express = require('express');
 const session = require('express-session')
 const app = express();
 const getPergunta = require('./mongodb')
-const MongoClient = require('mongodb').MongoClient;
-const dotenv = require('dotenv')
-dotenv.config({debug: true})
-
-
-const url = process.env.URL_MONGO;
-
-var client
-
-async function connectClient() {
-    console.log('Iniciada uma nova conexão')
-    const client = await MongoClient.connect(url, { useNewUrlParser: true });
-    return client
-}
-connectClient().then(res => {
-    console.log('Conexão estabelecida')
-    client = res
-})
 
 app.use(session({
     secret: 'secret',
@@ -30,7 +12,7 @@ app.use(session({
 
 // API para o metodo get
 app.get('/pergunta', (req, res) => {
-    getPergunta(req.session.contagem, client).then(pergunta => {
+    getPergunta(req.session.contagem).then(pergunta => {
         try {
                 var pergunta_alternativas = {
                 alternativas: pergunta.alternativas,
@@ -48,8 +30,7 @@ app.use(bodyParser.json());
 
 app.post('/reposta', (req, res) => {
     var alternativa = req.body
-    
-    getPergunta(req.session.contagem, client).then(pergunta => {
+    getPergunta(req.session.contagem).then(pergunta => {
         if(pergunta.correta == alternativa.alternativa) {
             req.session.contagem++
             var alternativa_correta = {
@@ -62,7 +43,7 @@ app.post('/reposta', (req, res) => {
                 resultado: "errado"
             }
             res.json(alternativa_errada)
-        }   
+        }
     });
 });
 
