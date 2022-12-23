@@ -7,7 +7,7 @@ let formulario_questoes = document.getElementById('formulario-questoes')
 
 function get_pergunta() {
     const xhr = new XMLHttpRequest()
-    xhr.open('GET', 'http://192.168.0.195/pergunta')
+    xhr.open('GET', '/pergunta')
     xhr.onload = () => {
         if (xhr.status === 200) {
             json = xhr.response
