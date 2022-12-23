@@ -4,11 +4,18 @@ const session = require('express-session')
 const app = express();
 const getPergunta = require('./mongodb')
 const port = process.env.PORT || 3001;
+const MongoStore = require('connect-mongodb-session')(session);
+
+const store = new MongoStore({
+    uri: process.env.URL_MONGO,
+    collection: 'sessions'
+});
 
 app.use(session({
-    secret: 'secret',
+    secret: 'my-secret',
     resave: false,
-    saveUninitialized: true
+    saveUninitialized: true,
+    store: store
 }));
 
 // API para o metodo get
