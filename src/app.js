@@ -47,24 +47,25 @@ app.post('/reposta', (req, res) => {
     });
 });
 
+
 // Pagina principal
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/src/pagina-inicial/index.html')
-    app.use(express.static('src/pagina-inicial'))
+    res.sendFile(__dirname + '/pagina-inicial/index.html')
+    app.use(express.static('src/pagina-inicial/'))
     
     req.session.contagem = 1
 });
 
 // Página help
 app.get('/help', (req, res) => {
-    res.sendFile(__dirname + '/src/help/index.html')
-    app.use(express.static('src/help'))
+    res.sendFile(__dirname + '/help/index.html')
+    app.use(express.static('src/help/'))
 })
 
 // Página rank
 app.get('/rank', (req, res) => {
-    res.sendFile(__dirname + '/src/rank/index.html')
-    app.use(express.static('src/rank'))
+    res.sendFile(__dirname + '/rank/index.html')
+    app.use(express.static('src/rank/'))
 })
 
 app.listen(80, '192.168.0.195', () => {
