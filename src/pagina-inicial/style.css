@@ -32,6 +32,14 @@ body {
     animation: pisca 1.5s ease-in-out infinite;
 }
 
+.p_comeco {
+    margin: 0;
+}
+
+.primeiro {
+    margin: 5%;
+}
+
 .enter {
     color: white;
     -webkit-text-stroke: 2px black;
@@ -60,7 +68,8 @@ body {
     font-size: 70px;
     line-height: 0.5;
     font-family: 'ThinPixel';
-    margin: 10px;
+    padding: 0;
+    margin: 0;
 }
 
 input {
@@ -86,6 +95,10 @@ input:hover {
 }
 
 @media ( max-width: 530px ) {
+    #Pergunta {
+        font-size: 50px;
+    }
+
     input {
         width: 90%;
         display: block;
@@ -101,9 +114,11 @@ input:hover {
 }
 
 #cronometro {
+    display: block;
     font-family: 'ThinPixel';
     font-size: 50px;
     text-align: center;
+    margin-top: 10px;
 }
 
 #resultado-erros {
@@ -115,4 +130,9 @@ input:hover {
 #span-erros {
     color: black;
     transition: color 0.3s;
+}
+
+#texto-fim {
+    font-family: 'ThinPixel';
+    font-size: 50px;
 }

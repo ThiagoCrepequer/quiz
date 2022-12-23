@@ -12,7 +12,6 @@ function inicio() {
     get_pergunta()
 }
 
-
 document.addEventListener('keypress', function(res) {
     if(controla_comeco == 0 && res.key == 'Enter') {        
         console.log('o jogo começou')
