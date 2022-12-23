@@ -101,11 +101,18 @@ input:hover {
 }
 
 #cronometro {
-    position: absolute;
-    left: 50%;
-    top: 20%;
-    transform: translate(-50%, -50%);
     font-family: 'ThinPixel';
     font-size: 50px;
     text-align: center;
+}
+
+#resultado-erros {
+    font-family: 'ThinPixel';
+    font-size: 50px;
+    margin: 0;
+}
+
+#span-erros {
+    color: black;
+    transition: color 0.3s;
 }

@@ -11,8 +11,7 @@ function escrevePergunta(pergunta, alternativas) {
 
         i++
         if(arrayPergunta.length == i) {
-            
-            intervalo = setInterval(contaTempo, 1000)
+            imprimeValores()
             adicionaAlternativas(alternativas)
             clearInterval(intervalo2)
         } 

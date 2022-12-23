@@ -7,7 +7,8 @@ function inicio() {
     
     let div_jogo = document.getElementById('div-jogo')
     div_jogo.hidden = false
-
+    
+    intervalo = setInterval(contaTempo, 1000)        
     get_pergunta()
 }
 
