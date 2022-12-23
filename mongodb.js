@@ -4,6 +4,7 @@ dotenv.config({debug: true})
 
 const dbname = 'perguntas';
 const url = process.env.URL_MONGO;
+console.log(url)
 
 var client
 
@@ -19,6 +20,7 @@ connectClient().then(res => {
 
 async function getPergunta(valor) {
   try {
+    console.log('Houve uma tentativa de buscar uma questão no banco de dados')
     const perguntasCollection = client.db(dbname).collection('perguntas');
     
     const pergunta = await perguntasCollection.findOne({ sequencia: `${valor}` });
