@@ -8,26 +8,29 @@
     <title>Quiz</title>
 </head>
 <body>
-    <p id="texto-comeco">Para começar aperte Enter</p>
+    <div class="bloco">
+        <p id="texto-comeco">Para começar aperte <span class="enter">Enter</span></p>
 
-    <div id="div-jogo">
-        <p id="Pergunta" class="fim"></p>
-        <form id="formulario-questoes" class="fim" hidden="true">
-            <input id="button1" type="button" value="">
-            <input id="button2" type="button" value="">
-            <input id="button3" type="button" value="">
-            <input id="button4" type="button" value="">
-        </form>
+        <time id="cronometro"></time>
+        <div id="div-jogo" hidden="true">
+            <p id="Pergunta" class="fim"></p>
+            <form id="formulario-questoes" class="fim">
+                <input id="button1" class="button1" type="button" value="">
+                <input id="button2" class="button1" type="button" value="">
+                <input id="button3" class="button2" type="button" value="">
+                <input id="button4" class="button2" type="button" value="">
+            </form>
+        </div>
+        <div id="fim" hidden="true">
+            <p id="texto-fim">O quiz terminou esse foi o seu resultado:</p>
+        </div>
+        <p id="resultado-erros"></p>
     </div>
-    <div id="fim" hidden="true">
-        <p id="texto-fim">O quiz terminou esse foi o seu resultado:</p>
-    </div>
-    <time id="cronometro"></time>
-    <p id="resultado-erros"></p>
 
     <script src="scripts/inicio-e-fim.js"></script>
     <script src="scripts/send-get.js"></script>
     <script src="scripts/atualiza-pontuacao.js"></script>
     <script src="scripts/cronometro.js"></script>
+    <script src="scripts/escreve-texto.js"></script>
 </body>
 </html>

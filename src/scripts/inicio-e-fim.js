@@ -1,13 +1,30 @@
 var controla_comeco = 0
 var intevalor
 
-document.addEventListener('keypress', function(res) {
-    if(controla_comeco == 0 && res.key == 'Enter') {
-        var texto_comeco = document.getElementById('texto-comeco')
-        texto_comeco.hidden = true
+function inicio() {    
+    var texto_comeco = document.getElementById('texto-comeco')
+    texto_comeco.hidden = true
+    
+    let div_jogo = document.getElementById('div-jogo')
+    div_jogo.hidden = false
 
-        get_pergunta()
-        intervalo = setInterval(contaTempo, 1000)
+    get_pergunta()
+}
+
+
+document.addEventListener('keypress', function(res) {
+    if(controla_comeco == 0 && res.key == 'Enter') {        
+        console.log('o jogo começou')
+        controla_comeco++
+        inicio()
+    }
+})
+
+document.addEventListener('click', function() {
+    if(controla_comeco == 0) {
+        console.log('o jogo começou')
+        controla_comeco++
+        inicio()
     }
 })
 
