@@ -20,7 +20,6 @@ connectClient().then(res => {
 
 async function getPergunta(valor) {
   try {
-    console.log('Houve uma tentativa de buscar uma questão no banco de dados')
     if(!client) {
       console.log('O Client ainda não foi carregado')
       return;
@@ -31,7 +30,6 @@ async function getPergunta(valor) {
     if(pergunta == null) {
         return undefined
     }
-    console.log(pergunta)
     return pergunta
   } catch (err) {
     console.error(err);
